@@ -14,7 +14,7 @@ public class Main {
                                                     motionSensor, doorLock,
                                                     tempetureSensor, thermostat);
 
-        controlPanel.display();
+        System.out.println("Welcome to your smart home master");
         int time = 0;
         while (time < 20) {
             // it will iterare every 1 seconds
@@ -25,7 +25,6 @@ public class Main {
                 controlPanel.toggleDoor();
             }
             controlPanel.optimizeHeat();
-
             controlPanel.display();
             time++;
             //Thread.sleep(1000);

@@ -16,4 +16,8 @@ public class DoorLock implements IActuator<Boolean> {
         return isLocked;
     }
 
+    public String toString() {
+        return "Door is: " + (isLocked ? "Locked" : "Unlocked");
+    }
+
 }

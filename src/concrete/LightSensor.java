@@ -17,4 +17,8 @@ public class LightSensor implements ISensor<Boolean> {
         return new Signal<>(isOn);
     }
 
+    public String toString() {
+        return "Light is: " + (isOn ? "On" : "Off");
+    }
+
 }

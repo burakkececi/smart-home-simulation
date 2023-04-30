@@ -14,4 +14,8 @@ public class LightBulb implements IActuator<Boolean> {
         return isOn;
     }
 
+    public String toString() {
+        return "Light is: " + (isOn ? "On" : "Off");
+    }
+
 }

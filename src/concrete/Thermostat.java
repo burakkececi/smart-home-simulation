@@ -37,4 +37,9 @@ public class Thermostat implements IThermostat {
         this.status = ThermostatStatus.COOLING;
     }
 
+    public String toString() {
+        return (status != ThermostatStatus.CLOSE) ? "Thermostat is Open and mode is " + status.toString().toLowerCase()
+                : "Thermostat is Close";
+    }
+
 }

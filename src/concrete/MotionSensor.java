@@ -18,4 +18,8 @@ public class MotionSensor implements ISensor<Boolean> , IRandomize {
         return new Signal<>(motionDetected);
     }
 
+    public String toString() {
+        return "Motion detected: " + (motionDetected ? "Yes" : "No");
+    }
+
 }

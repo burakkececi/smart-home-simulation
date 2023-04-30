@@ -24,14 +24,16 @@ public class SmartHome implements IControlPanel {
 
     @Override
     public void display() {
-        System.out.println("\nWelcome your home :)");
-        System.out.printf("Your room is %d °C degree. Thermostat is %s\nYour light is %s.\nYour door is %s.\n",
-                temperatureSensor.getStatus().getData(),
-                thermostat.getStatus().toString(),
-                lightSensor.getStatus().getData() ? "Open" : "Close",
-                motionSensor.getStatus().getData() ? "Open" : "Close");
-        //System.out.println("Door is open: " + doorLock.getStatus());
-        //System.out.println("Temperature is: " + temperatureSensor.getStatus());
+        System.out.println("==============================================");
+        System.out.println("Information from sensors:");
+        System.out.println(lightSensor.toString());
+        System.out.println(motionSensor.toString());
+        System.out.println(temperatureSensor.toString());
+        System.out.println("\nInformation from actuators:");
+        System.out.println(lightBulb.toString());
+        System.out.println(doorLock.toString());
+        System.out.println(thermostat.toString());
+        System.out.println("==============================================");
     }
 
     @Override
@@ -48,19 +50,19 @@ public class SmartHome implements IControlPanel {
 
     @Override
     public void optimizeHeat() {
-        int temperature = IRandomize.randomize(15, 30);
-        temperatureSensor.setStatus(temperature);
+        int temperature = temperatureSensor.getStatus().getData();
 
         if (temperature < 20) {
             thermostat.toggle();
             thermostat.heatUp();
+            thermostat.toggle();
         } else if (temperature > 25) {
             thermostat.toggle();
             thermostat.heatDown();
+            thermostat.toggle();
         } else {
             thermostat.setStatus(ThermostatStatus.CLOSE);
         }
-        thermostat.toggle();
     }
 
 }
