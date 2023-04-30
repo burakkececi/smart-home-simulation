@@ -2,7 +2,6 @@ package concrete;
 
 import abstraction.IRandomize;
 import abstraction.ISensor;
-import abstraction.ISignal;
 
 public class MotionSensor implements ISensor<Boolean> , IRandomize {
 
@@ -14,8 +13,8 @@ public class MotionSensor implements ISensor<Boolean> , IRandomize {
     }
 
     @Override
-    public ISignal<Boolean> getStatus() {
-        return new Signal<>(motionDetected);
+    public Boolean getStatus() {
+        return this.motionDetected;
     }
 
     public String toString() {

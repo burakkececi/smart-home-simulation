@@ -2,7 +2,7 @@ import abstraction.*;
 import concrete.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ISensor<Boolean> lightSensor = new LightSensor();
         ISensor<Boolean> motionSensor = new MotionSensor();
         ISensor<Integer> tempetureSensor = new TemperatureSensor();
@@ -17,7 +17,6 @@ public class Main {
         System.out.println("Welcome to your smart home master");
         int time = 0;
         while (time < 20) {
-            // it will iterare every 1 seconds
             if (IRandomize.randomize(0, 1) == 1){
                 controlPanel.toggleLight();
             }
@@ -27,7 +26,7 @@ public class Main {
             controlPanel.optimizeHeat();
             controlPanel.display();
             time++;
-            //Thread.sleep(1000);
+            Thread.sleep(1000);
         }
     }
 }

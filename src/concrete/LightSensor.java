@@ -1,7 +1,6 @@
 package concrete;
 
 import abstraction.ISensor;
-import abstraction.ISignal;
 
 public class LightSensor implements ISensor<Boolean> {
 
@@ -13,8 +12,8 @@ public class LightSensor implements ISensor<Boolean> {
     }
 
     @Override
-    public ISignal<Boolean> getStatus() {
-        return new Signal<>(isOn);
+    public Boolean getStatus() {
+        return this.isOn;
     }
 
     public String toString() {

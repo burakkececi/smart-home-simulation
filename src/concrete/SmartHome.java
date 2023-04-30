@@ -1,6 +1,9 @@
 package concrete;
 
-import abstraction.*;
+import abstraction.IActuator;
+import abstraction.IControlPanel;
+import abstraction.ISensor;
+import abstraction.IThermostat;
 
 public class SmartHome implements IControlPanel {
 
@@ -50,7 +53,7 @@ public class SmartHome implements IControlPanel {
 
     @Override
     public void optimizeHeat() {
-        int temperature = temperatureSensor.getStatus().getData();
+        int temperature = temperatureSensor.getStatus();
 
         if (temperature < 20) {
             thermostat.toggle();

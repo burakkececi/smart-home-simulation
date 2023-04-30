@@ -2,7 +2,6 @@ package concrete;
 
 import abstraction.IRandomize;
 import abstraction.ISensor;
-import abstraction.ISignal;
 
 public class TemperatureSensor implements ISensor<Integer>, IRandomize {
 
@@ -14,9 +13,9 @@ public class TemperatureSensor implements ISensor<Integer>, IRandomize {
     }
 
     @Override
-    public ISignal<Integer> getStatus() {
+    public Integer getStatus() {
         setStatus(IRandomize.randomize(15, 30));
-        return new Signal<>(this.temperature);
+        return this.temperature;
     }
 
     public String toString() {
